@@ -1,15 +1,19 @@
 from Lists import LinkedOrderedList
+from ABR import ABR
+from ARN import ARN
 
 def main():
-    test = LinkedOrderedList()
+    test = ARN()
     test.insertNewValue(20)
-    test.insertNewValue(16)
+    n16 = test.insertNewValue(16)
     test.insertNewValue(28)
     n19 = test.insertNewValue(19)
     test.insertNewValue(7)
     test.display()
-    if test.OS_Select(6) is not None:
-        print(test.OS_Select(6).value)
+    x = test.OS_Select(1)
+    if x is not None:
+        print(x.value)
+    print(test.OS_Rank(n16))
     print(test.OS_Rank(n19))
     return 0
 
