@@ -1,22 +1,21 @@
-from Lists import LinkedOrderedList
-from ABR import ABR
-from ARN import ARN
+from SuperGraphGenerator import SuperGraphGenerator
+import sys
+sys.setrecursionlimit(5000)
 
 def main():
-    test = ARN()
-    test.insertNewValue(20)
-    n16 = test.insertNewValue(16)
-    test.insertNewValue(28)
-    n19 = test.insertNewValue(19)
-    test.insertNewValue(7)
-    test.display()
-    x = test.OS_Select(1)
-    if x is not None:
-        print(x.value)
-    print(test.OS_Rank(n16))
-    print(test.OS_Rank(n19))
-    return 0
-
+    while True:
+        x = int(input("Inserisci dimensione test: "))
+        if x == 0:
+            break
+        while True:
+            y = int(input("Inserisci numero di punti: "))
+            if x % y == 0:
+                break
+        test = SuperGraphGenerator(x, y)
+        test.executeTest()
+        test.plotRangeTable()
+        test.plotSuperGraphInsertType()
+        test.plotSingleGraphs()
 
 if __name__ == '__main__':
     main()
